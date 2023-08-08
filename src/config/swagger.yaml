@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: To Do Application
+  description: To Do Application API
+  version: 0.1.9
+
+servers:
+  - url: http://localhost:3001/api
+    description: local server
+
+paths:
+  /todo:
+    get:
+      tags:
+        - Get all todos
+      responses:
+        "200":
+          description: Successfully fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+    post:
+      tags:
+      requestBody:
+        description: Create todo
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                todo:
+                  type: string
+                status:
+                  type: boolean
+                id:
+                  type: number
+            example:
+              todo: workout
+              status: fasle
+              id: 1
+      responses:
+        "200":
+          description: add user
