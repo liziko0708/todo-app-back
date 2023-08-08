@@ -4,14 +4,14 @@ import dotenv from "dotenv";
 // import path from "path";
 // import { fileURLToPath } from "url";
 // import { dirname } from "path";
-
+import cors from "cors";
 import swaggerMiddleware from "./middlewears/swagger-middlewear.js";
 import connectToMongo from "../src/config/mongo.js";
-import toDoRouter from "./routes.js/todo-router.js";
+import toDoRouter from "./router/todo-router.js";
 const app = express();
 dotenv.config();
 connectToMongo();
-
+app.use(cors());
 //tying to connect to front file
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = dirname(__filename);
